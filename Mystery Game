@@ -1,0 +1,172 @@
+#include<stdio.h>
+#include<stdlib.h>
+main()
+{
+int level,mn,i,gn; //"mn" is for the mystery number and "gn" for the guessed number.
+char mc,gc; //"mc" is for the mystery character and "gc" is for the guessed character.
+
+	do
+	{
+		printf("------------ Welcome to Mystery Game------------\n");
+		printf("------------ Please choose a level------------\n");
+		printf("------------ 1: Easy level------------\n");
+		printf("------------ 2: Medium level------------\n");
+		printf("------------ 3: Hard level------------\n");
+		printf("------------ 0: Exit------------\n\n");
+		scanf("%d",&level);
+		if(level==0)
+		break;
+		else
+		if(level==1)
+		{
+			printf("\nEasy level : The mystery is a number between 0 and 100\n  ");
+	        mn=(rand()%(100-0+1)+0);
+	
+	
+		for(i=14;i>=0;i--)
+		{
+			
+			
+		do
+		{
+				
+		printf("\nGive the mystery between 0 and 100\n");
+		scanf("%d",&gn);
+		}
+		while(gn<0||gn>100);
+		
+		if(i==0)
+		{
+		printf("\nYou have reached the maximum number of attempts\n");
+		break;}
+		
+		else
+		
+		{
+		
+		if(gn<mn)	
+		printf("\nIt's more you still have %d attempts\n",i);
+		else
+		if(gn>mn)
+		printf("\nIt's less you still have %d attempts\n",(i));
+		else
+		if(gn==mn)
+		{
+		printf("\n\tCongratulations! You won after %d attempts\n",15-i);
+		break;
+	    }
+	    }
+		}
+		
+	printf("\n\tThe mystery number is *%d \n\n",mn);
+		}
+		
+		else
+		if(level==2)
+		{
+			printf("\nMedium level : The mystery is a number between 0 and 10000\n  ");
+	       mn=(rand()%(10000-0+1)+0);
+	       
+		for(i=9;i>=0;i--)
+		{
+			do
+			{
+			
+		printf("\nGive the mystery between 0 and 10000\n");
+		scanf("%d",&gn);
+		    } 
+		    while(gn<0||gn>10000);
+		    if(i==0)
+		{
+		printf("\nYou have reached the maximum number of attempts\n");
+		break;}
+		
+		else
+		{
+		
+		if(gn<mn)	
+		printf("\nIt's more you still have %d attempts\n",i);
+		else
+		if(gn>mn)
+		printf("\nIt's less you still have %d attempts\n",i);
+		else
+		if(gn==mn)
+		{
+		printf("\n\tCongratulations! You won after %d attempts\n",10-i);
+		break;
+	    }}
+		}
+		printf("\n\tThe mystery number is *%d \n\n",mn);
+		}
+		
+		
+		else 
+		if(level==3)
+		{
+			
+		printf("\nHard level : The mystery is a number between 10 and 100 and a character between a and z\n  ");
+		mn=(rand()%(100-10+1)+10);
+		mc=(rand()% (122-97+1)+97);
+		
+	
+	
+		for(i=9;i>=0;i--)
+		{	
+		do
+		{
+		
+		printf("\nGive the mystery between 10 and 100\n");
+		scanf("%d",&gn);
+		}
+		while(gn<10||gn>100);
+		do
+		{
+		printf("\nGive the mystery between a and z\n");
+		scanf(" %c",&gc);
+	    }
+	    while(gc<97||gc>122);
+	    if(i==0)
+		{
+		printf("\nYou have reached the maximum number of attempts\n");
+		break;}
+		
+		else
+	    {
+		
+	    if(gn<mn&&gc<mc)
+	    printf("\nIt's more for the number and more for the character, you still have %d attempts\n ",i);
+		else
+		if(gn>mn&&gc>mc)
+	    printf("\nIt's less for the number and less for the character, you still have %d attempts\n ",i );
+		else
+		if(gn<mn&&gc>mc)
+	    printf("\nIt's more for the number and less for the character, you still have %d attempts\n ",i );
+		else
+		if(gn>mn&&gc<mc)
+	    printf("\nIt's less for the number and more for the character, you still have %d attempts\n ",i );
+	    else
+		if(gn==mn&&gc<mc)
+	    printf("\nThe number is correct : *%d but it's more for the character , you still have %d attempts\n ",mn,i );
+	    else
+		if(gn==mn&&gc>mc)
+	    printf("\nThe number is correct : *%d but it's less for the character , you still have %d attempts\n ",mn,i);
+	    else
+		if(gn<mn&& gc==mc)
+	    printf("\nThe number is more but the character is correct : *%c , you still have %d attempts\n ",mc,i );
+	    else
+		if(gn>mn&&gc==mc)
+	    printf("\nThe number is less but the character is correct : *%c , you still have %d attempts\n ",mc,i);
+	    else
+		if(gn==mn&&gc==mc)
+	    {
+	    printf("\n\tCongrats! You won after %d attempts\n",10-i);
+	    break;
+      	}
+      }
+	    }
+	printf("\n\tThe mystery number is *%d and the mystery character is *%c\n\n",mn,mc);
+		}
+	}
+	while(level!=0);
+	
+}
